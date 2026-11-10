@@ -1,0 +1,65 @@
+{
+  "workload": {
+    "trials": 300,
+    "agents_per_trial": 7,
+    "root_requests_per_trial": 12,
+    "transport": "shuffled, 20% duplicate rate",
+    "max_depth": 3,
+    "invalid_payload_rate": 0.1
+  },
+  "arms": [
+    {
+      "arm": "full",
+      "trials": 300,
+      "fifo_violations": 0,
+      "duplicate_deliveries": 0,
+      "hung_waits": 0,
+      "refunds_below_privileged": 0,
+      "refunds_executed": 40,
+      "messages_delivered": 6772,
+      "refusals_by_code": {
+        "deadlock": 563,
+        "delegation_cycle": 197,
+        "depth_exceeded": 15,
+        "invalid_payload": 352,
+        "no_open_request": 831,
+        "trust_violation": 799
+      }
+    },
+    {
+      "arm": "no_ordering",
+      "trials": 300,
+      "fifo_violations": 724,
+      "duplicate_deliveries": 1569,
+      "hung_waits": 0,
+      "refunds_below_privileged": 0,
+      "refunds_executed": 48,
+      "messages_delivered": 9497,
+      "refusals_by_code": {
+        "deadlock": 605,
+        "delegation_cycle": 241,
+        "depth_exceeded": 30,
+        "invalid_payload": 352,
+        "no_open_request": 1242,
+        "trust_violation": 987
+      }
+    },
+    {
+      "arm": "no_deadlock_detection",
+      "trials": 300,
+      "fifo_violations": 0,
+      "duplicate_deliveries": 0,
+      "hung_waits": 1567,
+      "refunds_below_privileged": 0,
+      "refunds_executed": 24,
+      "messages_delivered": 4895,
+      "refusals_by_code": {
+        "delegation_cycle": 44,
+        "depth_exceeded": 1,
+        "invalid_payload": 352,
+        "no_open_request": 391,
+        "trust_violation": 410
+      }
+    }
+  ]
+}
